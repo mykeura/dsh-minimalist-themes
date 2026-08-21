@@ -1,0 +1,135 @@
+/* Theme picker card. Colors come from the semantic aliases so the card
+ * itself re-themes with the active palette; preview bands use the
+ * component-local custom properties set inline per swatch. */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--dsw-alias-border-l2);
+  border-radius: 12px;
+  background: var(--dsw-alias-bg-layer-1);
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  color: var(--dsw-alias-label-primary);
+}
+
+.description {
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--dsw-alias-label-secondary);
+}
+
+.reset {
+  align-self: flex-start;
+  padding: 5px 12px;
+  border: 1px solid var(--dsw-alias-border-l2);
+  border-radius: 999px;
+  background: transparent;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--dsw-alias-label-secondary);
+  cursor: pointer;
+  transition: background var(--ds-transition-duration-fast) var(--ds-ease-in-out),
+    border-color var(--ds-transition-duration-fast) var(--ds-ease-in-out),
+    color var(--ds-transition-duration-fast) var(--ds-ease-in-out);
+}
+
+.reset:hover {
+  background: var(--dsw-alias-interactive-bg-hover);
+}
+
+.resetSelected {
+  border-color: var(--dsw-alias-brand-primary);
+  color: var(--dsw-alias-brand-primary);
+  background: var(--dsw-specific-bubble);
+}
+
+.reset:focus-visible {
+  outline: 2px solid var(--dsw-alias-brand-primary);
+  outline-offset: 1px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
+  gap: 10px;
+}
+
+.swatch {
+  --mt-frame: rgb(207, 211, 214);
+  --mt-canvas: rgb(255, 255, 255);
+  --mt-omnibox: rgb(249, 250, 251);
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px;
+  border: 1px solid var(--dsw-alias-border-l2);
+  border-radius: 10px;
+  background: var(--dsw-alias-bg-layer-2);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color var(--ds-transition-duration-fast) var(--ds-ease-in-out),
+    box-shadow var(--ds-transition-duration-fast) var(--ds-ease-in-out),
+    transform var(--ds-transition-duration-fast) var(--ds-ease-in-out);
+}
+
+.swatch:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px var(--dsw-alias-bg-mask-2);
+}
+
+.swatch:focus-visible {
+  outline: 2px solid var(--dsw-alias-brand-primary);
+  outline-offset: 1px;
+}
+
+.selected {
+  border-color: var(--dsw-alias-brand-primary);
+  box-shadow: 0 0 0 1px var(--dsw-alias-brand-primary);
+}
+
+.bands {
+  display: flex;
+  flex-direction: column;
+  height: 56px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--dsw-alias-border-l1);
+}
+
+.bandFrame {
+  flex: 3;
+  background: var(--mt-frame);
+}
+
+.bandCanvas {
+  flex: 5;
+  background: var(--mt-canvas);
+}
+
+.bandOmnibox {
+  flex: 2;
+  background: var(--mt-omnibox);
+}
+
+.name {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--dsw-alias-label-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

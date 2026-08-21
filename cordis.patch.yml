@@ -1,0 +1,7 @@
+# Bundle patch for @miguel/dsh-minimalist-themes. Attached automatically by
+# `dsh plugin --profile web add`; one insert row mounts both halves — the Host
+# half registers the settings namespace, and the same row's dsh.client
+# declaration puts the browser half on the page roster.
+- insert:
+    - id: minimalist-themes
+      name: '@miguel/dsh-minimalist-themes'

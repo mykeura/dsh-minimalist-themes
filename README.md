@@ -1,4 +1,4 @@
-# @miguel/dsh-minimalist-themes
+# @mykeura/dsh-minimalist-themes
 
 Adapta la colección de temas minimalistas para Chrome (`temas-chrome/`) al
 sistema de diseño de DeepSeek Harness (DSH): cada manifiesto `manifest.json`
@@ -49,7 +49,7 @@ Reinicia `dsh web` (el conjunto de bundles se lee al arrancar) y recarga la
 página. Verificación:
 
 ```sh
-curl -fsS http://127.0.0.1:3080/plugins/@miguel/dsh-minimalist-themes/client.js | head -c 120
+curl -fsS http://127.0.0.1:3080/plugins/@mykeura/dsh-minimalist-themes/client.js | head -c 120
 ```
 
 ## Desarrollo iterativo

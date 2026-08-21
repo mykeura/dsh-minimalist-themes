@@ -1,5 +1,5 @@
 /**
- * Dual-half build for @miguel/dsh-minimalist-themes.
+ * Dual-half build for @mykeura/dsh-minimalist-themes.
  *
  * - Host half: ordinary ESM `lib/index.js`; `@deepseek-ai/*` peers stay
  *   imports (the profile resolves them from its hoisted node_modules).
@@ -22,7 +22,7 @@ import { readFile } from 'node:fs/promises'
 import { isAbsolute, basename, dirname, resolve as resolvePath } from 'node:path'
 import { transform } from 'lightningcss'
 
-const PLUGIN_ID = '@miguel/dsh-minimalist-themes'
+const PLUGIN_ID = '@mykeura/dsh-minimalist-themes'
 
 /** Module-table specifiers the web page guarantees for every dynamic bundle. */
 const BROWSER_EXTERNALS = new Set([

@@ -12,14 +12,14 @@ export type ThemesCardKey =
 
 export const en = {
   'card.title': 'Minimalist themes',
-  'card.description': 'Pick one of the Minimalist Chrome palettes for the whole interface.',
+  'card.description': 'Pick a palette from this minimalist collection for the whole interface.',
   'card.followBuiltIn': 'Follow appearance',
   'card.active': 'Active',
 } as const
 
 export const zh = {
   'card.title': '极简主题',
-  'card.description': '选择一个极简 Chrome 配色，应用到整个界面。',
+  'card.description': '从这款极简系列中挑选一种配色，应用到整个界面。',
   'card.followBuiltIn': '跟随外观',
   'card.active': '使用中',
 } as const

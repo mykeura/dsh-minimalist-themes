@@ -1,9 +1,13 @@
 {
-  "name": "@miguel/dsh-minimalist-themes",
-  "description": "Minimalist Themes plugin: adapts the Minimalist Chrome theme collection to the DSH --dsw-* token system and adds a picker card under Settings > Plugins",
+  "name": "@mykeura/dsh-minimalist-themes",
+  "description": "Minimalist Themes plugin: adapts the Minimalist theme collection palettes to the DSH --dsw-* token system and adds a picker card under Settings > Plugins",
   "version": "1.0.0",
-  "author": "Miguel Euraque",
+  "author": "mykeura",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mykeura/dsh-minimalist-themes"
+  },
   "type": "module",
   "main": "lib/index.mjs",
   "types": "lib/index.d.mts",

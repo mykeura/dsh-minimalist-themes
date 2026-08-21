@@ -38,19 +38,59 @@ los 16 temas.
 - **Tarjeta propia** en Ajustes → Plugins con muestras de color (bandas
   frame/canvas/omnibox de cada paleta) y un botón «Seguir apariencia».
 
-## Instalación en un perfil DSH
+## Distribución vía GitHub
+
+### Publicar (mantenedor)
 
 ```sh
-# desde el checkout de DSH (o con el binario dsh en PATH)
-pnpm dsh plugin --profile web add /ruta/a/dsh-minimalist-themes
+git remote add origin git@github.com:mykeura/dsh-minimalist-themes.git
+git push -u origin main
+git tag v1.0.0 && git push --tags
 ```
 
-Reinicia `dsh web` (el conjunto de bundles se lee al arrancar) y recarga la
-página. Verificación:
+`lib/` viaja commiteado a propósito: quien instala no necesita Node ni
+toolchain, y los artefactos son el contrato del plugin (fábrica lazy-CJS con
+banner exacto para `window.__ModuleLoader__`). Tras cualquier cambio de
+código: `pnpm build`, commit de `lib/`, y etiqueta nueva.
+
+### Instalar (usuarios)
+
+Desde el checkout de DSH (o con el binario `dsh` global en PATH):
+
+```sh
+pnpm dsh plugin --profile web add github:mykeura/dsh-minimalist-themes
+# versión fija:
+pnpm dsh plugin --profile web add github:mykeura/dsh-minimalist-themes#v1.0.0
+```
+
+El comando instala el paquete en `~/.dsh/profiles/web`, adjunta su capa
+bundle al árbol y reconcilia la lista de bundles. Después:
+
+1. Reinicia `dsh web` (el conjunto de bundles se lee al arrancar).
+2. Recarga la página; la tarjeta aparece en **Ajustes → Plugins**.
+
+Verificación:
 
 ```sh
 curl -fsS http://127.0.0.1:3080/plugins/@mykeura/dsh-minimalist-themes/client.js | head -c 120
 ```
+
+### Actualizar / desinstalar
+
+```sh
+pnpm dsh plugin --profile web add github:mykeura/dsh-minimalist-themes#v1.0.1  # actualizar
+pnpm dsh plugin --profile web remove @mykeura/dsh-minimalist-themes            # quitar
+```
+
+### Por qué funciona sin compilar
+
+- La mitad navegador solo requiere módulos que toda página DSH precarga
+  (`react`, `cordis`, slots, primitivas, runtime).
+- La mitad Host importa únicamente paquetes del framework declarados como
+  `peerDependencies`; el arranque de DSH los resuelve y «cura» en
+  `~/.dsh/profiles/node_modules`.
+- El paquete no declara scripts de ciclo de vida (`prepare` etc.), así que
+  pnpm ≥ 10 no exige permisos de build al instalar desde git.
 
 ## Desarrollo iterativo
 

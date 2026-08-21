@@ -1,34 +1,112 @@
-/* Theme picker card. Colors come from the semantic aliases so the card
- * itself re-themes with the active palette; preview bands use the
- * component-local custom properties set inline per swatch. */
+/* Theme picker card chrome, mirroring the section's PluginCard (shell /
+ * agent loop / web search): same surfaces, borders, typography scale, and
+ * disclosure behavior — replicated locally because cross-plugin value
+ * imports are forbidden. Colors come from the semantic aliases so the card
+ * re-themes with the active palette; preview bands use component-local
+ * custom properties set inline per swatch. */
 
 .card {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 16px;
+  list-style: none;
   border: 1px solid var(--dsw-alias-border-l2);
   border-radius: 12px;
-  background: var(--dsw-alias-bg-layer-1);
+  background: var(--dsw-alias-bg-layer-3);
+  transition: border-color .16s, background .16s;
 }
 
-.intro {
+.card:hover {
+  border-color: var(--dsw-alias-label-dimmed);
+}
+
+/* An open card reads as the one being worked on, not merely taller. */
+.cardOpen {
+  background: var(--dsw-alias-bg-layer-2);
+  border-color: var(--dsw-alias-label-dimmed);
+}
+
+.header {
+  width: 100%;
+  appearance: none;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 12px;
+}
+
+.header:focus-visible {
+  outline: 2px solid var(--dsw-alias-brand-primary);
+  outline-offset: -2px;
+}
+
+.headText {
+  flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-.title {
-  font-size: 14px;
-  line-height: 20px;
+.name {
+  font-size: 15px;
   font-weight: 600;
+  line-height: 1.4;
   color: var(--dsw-alias-label-primary);
 }
 
 .description {
-  font-size: 12px;
-  line-height: 18px;
-  color: var(--dsw-alias-label-secondary);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--dsw-alias-label-tertiary);
+}
+
+/* Active-palette pill on the header, mirroring the pending-edits badge seat:
+   a collapsed card still says which Minimalist palette is live. */
+.pending {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  padding: 1px 8px;
+  font-size: 11px;
+  line-height: 17px;
+  font-weight: 500;
+  white-space: nowrap;
+  background: var(--mt-frame);
+  color: var(--dsw-alias-label-primary);
+}
+
+.pendingDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--dsw-alias-label-primary);
+  opacity: 0.55;
+}
+
+.chevron {
+  flex: none;
+  color: var(--dsw-alias-label-tertiary);
+  transition: transform .16s;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.body {
+  border-top: 1px solid var(--dsw-alias-border-l2);
+  margin: 0 16px;
+  padding: 12px 0 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .reset {
@@ -78,7 +156,7 @@
   padding: 8px;
   border: 1px solid var(--dsw-alias-border-l2);
   border-radius: 10px;
-  background: var(--dsw-alias-bg-layer-2);
+  background: var(--dsw-alias-bg-layer-1);
   cursor: pointer;
   text-align: left;
   transition: border-color var(--ds-transition-duration-fast) var(--ds-ease-in-out),
@@ -125,7 +203,7 @@
   background: var(--mt-omnibox);
 }
 
-.name {
+.swatchName {
   font-size: 12px;
   line-height: 16px;
   color: var(--dsw-alias-label-primary);

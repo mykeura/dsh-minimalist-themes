@@ -19,6 +19,14 @@
  * across browsers — is inherent to that decoupling. The Host half still
  * registers the `minimalist-themes` namespace because the Plugins tab pairs
  * cards against served namespaces.
+ *
+ * PICK CHOREOGRAPHY — circular reveal: a card pick runs the synchronous
+ * application inside a same-document View Transition and uncovers the new
+ * palette with a GPU-composited clip-path circle growing from the clicked
+ * control. Only the interactive path animates (boot restore and cross-tab
+ * echoes apply silently), and environments without the API — or users with
+ * reduced motion — get the plain instant swap (see the choreography
+ * section below).
  */
 
 import type { ClientContext } from '@deepseek-ai/dsh-client-runtime/client'
@@ -33,7 +41,11 @@ import { MINIMALIST_THEMES, paletteByThemeId } from '../themes.ts'
 import type { ThemeRuntimeFace, ThemeTokenOverrides } from '../theme-types.ts'
 import { createThemesCardStore } from './card-store.ts'
 import { en, zh, type ThemesCardKey } from './locales.ts'
-import { ThemesCard, type ThemesCardInjected } from './ThemesCard.tsx'
+import { ThemesCard, type RevealOrigin, type ThemesCardInjected } from './ThemesCard.tsx'
+// Side-effect import: the build's CSS-Modules pipeline installs this sheet
+// (view-transition pseudo rules + the capture-bracket freeze) as a
+// plugin-owned <style> at factory time.
+import './Reveal.module.css'
 
 /** Locale namespace carrying the picker card copy. */
 export const CARD_LOCALE_NS = 'minimalist-themes.card'
@@ -92,6 +104,71 @@ function writeStoredSelection(id: string): void {
   } catch {
     // Storage unavailable (quota, privacy mode): selection stays session-local.
   }
+}
+
+/**
+ * Pick choreography — constants and helpers. The reveal is the canonical
+ * theme-toggle View Transition pattern: the browser photographs the page
+ * around the synchronous token write, the injected sheet freezes the
+ * default cross-fade, and a WAAPI clip-path circle on
+ * ::view-transition-new(root) uncovers the new palette from the pick's
+ * seat. All rendering happens on the snapshot pair (GPU-composited), so
+ * the sweep stays smooth regardless of how much DOM the harness window
+ * holds.
+ */
+
+/** <html> attribute freezing component transitions for the capture bracket. */
+const SWAP_ATTRIBUTE = 'data-mt-swap'
+
+/** Sweep duration: long enough to read the circle across the window, over within a beat. */
+const REVEAL_DURATION_MS = 500
+
+/** Sweep easing — mirrors ui-theme's `--ds-ease-in-out` token value. */
+const REVEAL_EASING = 'cubic-bezier(0.4, 0, 0.2, 1)'
+
+/**
+ * Whether the choreography may run: the same-document View Transition API
+ * must exist and the user must not have asked for reduced motion.
+ * @returns true when a seated pick should animate.
+ */
+function revealSupported(): boolean {
+  if (typeof document === 'undefined' || typeof document.startViewTransition !== 'function') return false
+  if (typeof matchMedia === 'undefined') return true
+  return !matchMedia('(prefers-reduced-motion: reduce)').matches
+}
+
+/**
+ * Apply one selection under a same-document View Transition, uncovering the
+ * new palette with a circle growing from the pick's seat.
+ *
+ * The capture bracket attribute freezes component CSS transitions while
+ * the transition runs: several DSH surfaces fade background-color over
+ * ~100ms, and a mid-fade "new" photograph would show blended colors
+ * through the whole sweep. Values changed under the freeze, so lifting it
+ * re-triggers nothing. All three promise tails settle silently — a
+ * superseded (rapid re-pick) or failed reveal must not surface as an
+ * unhandled rejection, and the DOM swap itself has already landed by then.
+ * @param origin - viewport seat (the clicked control's center).
+ * @param apply - the synchronous selection application.
+ */
+function revealSelection(origin: RevealOrigin, apply: () => void): void {
+  const root = document.documentElement
+  root.setAttribute(SWAP_ATTRIBUTE, '')
+  const transition = document.startViewTransition(apply)
+  transition.updateCallbackDone.catch(() => {})
+  transition.ready.then(() => {
+    // Cover the farthest viewport corner: the circle fully replaces the old
+    // look exactly when the sweep ends.
+    const radius = Math.hypot(
+      Math.max(origin.x, window.innerWidth - origin.x),
+      Math.max(origin.y, window.innerHeight - origin.y),
+    )
+    root.animate(
+      { clipPath: [`circle(0px at ${origin.x}px ${origin.y}px)`, `circle(${radius}px at ${origin.x}px ${origin.y}px)`] },
+      { duration: REVEAL_DURATION_MS, easing: REVEAL_EASING, pseudoElement: '::view-transition-new(root)' },
+    )
+  }).catch(() => {})
+  transition.finished.finally(() => { root.removeAttribute(SWAP_ATTRIBUTE) }).catch(() => {})
 }
 
 /**
@@ -244,8 +321,12 @@ export function apply(ctx: ClientContext): void {
     boundRef.current = actions
     sync()
     return {
-      selectTheme: (id: string) => {
-        applySelection(id)
+      selectTheme: (id: string, origin?: RevealOrigin) => {
+        // Only the interactive path choreographs: boot restore and cross-tab
+        // echoes apply silently (no seat), and unsupported environments
+        // degrade to the plain synchronous swap.
+        if (origin !== undefined && revealSupported()) revealSelection(origin, () => { applySelection(id) })
+        else applySelection(id)
       },
     }
   }

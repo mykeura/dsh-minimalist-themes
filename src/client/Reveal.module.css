@@ -1,0 +1,32 @@
+/* Circular-reveal choreography for card picks. The JS half
+ * (src/client/index.ts) runs the synchronous token write inside
+ * document.startViewTransition, then animates ::view-transition-new(root)
+ * with a clip-path circle growing from the clicked swatch. These rules
+ * neutralize the API's default cross-fade: both snapshots become fully
+ * opaque and static, the new one stacked over the old, so the growing
+ * circle is the only thing that reveals the new palette.
+ *
+ * The view-transition rules are selector-global on purpose (their
+ * pseudo-elements hang off the document root's pseudo-tree, beyond any
+ * scoping) and ride :global() because CSS Modules would otherwise hash the
+ * `root` group argument into a selector that matches nothing. The
+ * swap-window rule keys on an attribute JS sets for the capture bracket —
+ * see SWAP_ATTRIBUTE. */
+
+:global(::view-transition-old(root)),
+:global(::view-transition-new(root)) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Capture bracket: present on <html> while the transition runs, it freezes
+ * component transitions (several DSH surfaces fade background-color over
+ * ~100ms) so the "new" photograph lands on final colors instead of a
+ * mid-fade blend. Property values changed under the freeze, so lifting it
+ * re-triggers nothing. */
+html[data-mt-swap],
+html[data-mt-swap] *,
+html[data-mt-swap] *::before,
+html[data-mt-swap] *::after {
+  transition: none !important;
+}

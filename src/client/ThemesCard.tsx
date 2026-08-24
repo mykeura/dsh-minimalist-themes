@@ -11,7 +11,9 @@
  * Selection applies immediately (no staged form), so unlike the form cards
  * there is no footer; the header pill names the active palette even while
  * collapsed. Palette colors ride component-local custom properties (the
- * sanctioned inline-style use).
+ * sanctioned inline-style use). Each pick hands its control's viewport
+ * seat to the plugin body, which sweeps the new palette in through a
+ * circular reveal (View Transition; instant where unsupported).
  */
 
 import { useState, type CSSProperties } from 'react'
@@ -25,10 +27,20 @@ import type { createThemesCardStore } from './card-store.ts'
 import type { ThemesCardKey } from './locales.ts'
 import css from './ThemesCard.module.css'
 
+/** Viewport seat one pick's reveal grows from: the clicked control's center, in px. */
+export interface RevealOrigin {
+  x: number
+  y: number
+}
+
 /** Injected business face: select a theme, or clear back to the built-in preference. */
 export interface ThemesCardInjected {
-  /** Persist and apply one `minimalist-*` id, or empty string to clear. */
-  selectTheme: (id: string) => void
+  /**
+   * Persist and apply one `minimalist-*` id, or empty string to clear.
+   * With a seat, the palette lands through the circular reveal; without
+   * one (or where the choreography cannot run) the swap is instant.
+   */
+  selectTheme: (id: string, origin?: RevealOrigin) => void
 }
 
 /** Full component props: runtime share + store share + locale seat + injected face. */
@@ -39,6 +51,18 @@ export type ThemesCardComponentProps =
 /** Short display name: the collection title without its "Minimalist" prefix. */
 function shortName(title: string): string {
   return title.replace(/^Minimalist\s+/, '')
+}
+
+/**
+ * Viewport center of one picker control — the seat its pick's reveal grows
+ * from. Rect center rather than pointer coordinates so keyboard activation
+ * (Enter/Space fire click without pointer data) seats the circle too.
+ * @param element - the clicked button.
+ * @returns its center in viewport pixels.
+ */
+function clickSeat(element: Element): RevealOrigin {
+  const rect = element.getBoundingClientRect()
+  return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 }
 }
 
 /**
@@ -80,7 +104,7 @@ export function ThemesCard({ t, useStore, selectTheme }: ThemesCardComponentProp
               type="button"
               className={clsx(css.reset, selected === '' && css.resetSelected)}
               aria-pressed={selected === ''}
-              onClick={() => { selectTheme('') }}
+              onClick={(event) => { selectTheme('', clickSeat(event.currentTarget)) }}
             >
               {t('card.followBuiltIn')}
             </button>
@@ -101,7 +125,7 @@ export function ThemesCard({ t, useStore, selectTheme }: ThemesCardComponentProp
                       '--mt-canvas': preview.canvas,
                       '--mt-omnibox': preview.omnibox,
                     } as SwatchVars}
-                    onClick={() => { selectTheme(id) }}
+                    onClick={(event) => { selectTheme(id, clickSeat(event.currentTarget)) }}
                   >
                     <span className={css.bands} aria-hidden="true">
                       <span className={css.bandFrame} />

@@ -4,14 +4,14 @@ Adapta la colección de temas minimalistas para Chrome (`temas-chrome/`) al
 sistema de diseño de DeepSeek Harness (DSH): cada manifiesto `manifest.json`
 de Chrome se convierte en un tema registrado en el runtime de temas de DSH
 (`ctx.theme`), y una tarjeta bajo **Ajustes → Plugins** permite elegir entre
-los 16 temas.
+los 18 temas.
 
 ## Qué hace
 
-- **16 temas registrados**: Beetroot Juice, Blackberry Juice, Coffee With
+- **18 temas registrados**: Beetroot Juice, Blackberry Juice, Coffee With
   Milk, Cornmeal Porridge, Diana Yin, Grape Juice, Green Tea, Hibiscus Tea,
-  Horchata, Mango, Mint, Nance Juice, Oceans, Orange Juice, Snow Water y
-  Turquoise.
+  Horchata, Mango, Mint, Nance Juice, Oceans, Orange Juice, Snow Water,
+  Turquoise, Ultramarine y Yuzu.
 - **Adaptación de paleta**: los roles de Chrome se mapean a tokens semánticos
   `--dsw-*`:
   | Chrome | Rol | Token DSH |
@@ -35,6 +35,13 @@ los 16 temas.
   built-in pisando el tema activo — además ese pisotón es indistinguible de un
   clic legítimo del usuario. El costo es asumido: la selección no viaja entre
   navegadores (sí entre pestañas, vía evento `storage`).
+- **Revelado circular al elegir**: cada pick aplica la paleta bajo una View
+  Transition del mismo documento y la descubre con un círculo que crece
+  desde el swatch elegido hasta cubrir la ventana (animación compuesta en
+  GPU sobre el par de snapshots, suave independiente del tamaño del DOM).
+  Sin la API, o con `prefers-reduced-motion` activo, el cambio aterriza
+  instantáneo como siempre; la restauración al arrancar y el eco entre
+  pestañas tampoco se animan.
 - **Tarjeta propia** en Ajustes → Plugins con muestras de color (bandas
   frame/canvas/omnibox de cada paleta) y un botón «Seguir apariencia».
 

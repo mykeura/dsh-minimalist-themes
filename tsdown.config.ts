@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: MIT
-// Copyright (c) 2026 Miguel Euraque
+// Copyright (c) 2026 Miguel Euraque (mykeura)
 // @version 1.0.0
-// @author Miguel Euraque (mykeura)
 
 /**
  * Dual-half build for @mykeura/dsh-minimalist-themes.

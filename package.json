@@ -47,6 +47,9 @@
       "immediately": true
     }
   },
+  "dependencies": {
+    "clsx": "^2.1.1"
+  },
   "peerDependencies": {
     "@deepseek-ai/cordis": ">=0.0.0",
     "@deepseek-ai/dsh-settings": ">=0.0.1-rc.1",
@@ -56,6 +59,7 @@
     "@deepseek-ai/cordis": ">=0.0.0",
     "@deepseek-ai/dsh-settings": ">=0.0.1-rc.1",
     "@deepseek-ai/schemastery": ">=0.0.0",
+    "clsx": "^2.1.1",
     "lightningcss": "^1.33.0",
     "tsdown": "^0.22.14",
     "typescript": "^7.0.2"

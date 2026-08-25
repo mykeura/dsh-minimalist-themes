@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Miguel Euraque
+// @version 1.0.0
+// @author Miguel Euraque (mykeura)
+
 /**
  * Minimalist Themes — Host half.
  *

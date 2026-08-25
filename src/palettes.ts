@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Miguel Euraque
+// @version 1.0.0
+// @author Miguel Euraque (mykeura)
+
 /**
  * The Minimalist collection palettes: one entry per theme, each carrying the
  * nine base colors the DSH token adapter consumes. This is the source of

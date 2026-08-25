@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Miguel Euraque
+// @version 1.0.0
+// @author Miguel Euraque (mykeura)
+
 /**
  * Durable selection contract shared by both halves. The Host registers the
  * namespace into the user-settings document; the browser half reads and

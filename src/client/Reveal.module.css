@@ -1,3 +1,10 @@
+/*
+ * SPDX-License-Identifier: MIT
+ * Copyright (c) 2026 Miguel Euraque
+ * @version 1.0.0
+ * @author Miguel Euraque (mykeura)
+ */
+
 /* Circular-reveal choreography for card picks. The JS half
  * (src/client/index.ts) runs the synchronous token write inside
  * document.startViewTransition, then animates ::view-transition-new(root)

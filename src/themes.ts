@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Miguel Euraque
+// @version 1.0.0
+// @author Miguel Euraque (mykeura)
+
 /**
  * The Minimalist theme catalog: every collection palette becomes one light
  * `ThemeDefinition` registered into the DSH theme runtime. Ids are prefixed

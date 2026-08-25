@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Miguel Euraque
+// @version 1.0.0
+// @author Miguel Euraque (mykeura)
+
 /**
  * Theme picker card store: mirrors the persisted selection and the theme
  * runtime revision. The plugin's apply-world listeners are the only writers;

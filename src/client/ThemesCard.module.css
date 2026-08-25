@@ -1,3 +1,10 @@
+/*
+ * SPDX-License-Identifier: MIT
+ * Copyright (c) 2026 Miguel Euraque
+ * @version 1.0.0
+ * @author Miguel Euraque (mykeura)
+ */
+
 /* Theme picker card chrome, mirroring the section's PluginCard (shell /
  * agent loop / web search): same surfaces, borders, typography scale, and
  * disclosure behavior — replicated locally because cross-plugin value

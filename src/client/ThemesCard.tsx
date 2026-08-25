@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Miguel Euraque
+// @version 1.0.0
+// @author Miguel Euraque (mykeura)
+
 /**
  * Theme picker card registered into the Plugins settings section under this
  * plugin's namespace. The card chrome mirrors the section's other plugin

@@ -1,3 +1,8 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Miguel Euraque
+# @version 1.0.0
+# @author Miguel Euraque (mykeura)
+
 # Bundle patch for @mykeura/dsh-minimalist-themes. Attached automatically by
 # `dsh plugin --profile web add`; one insert row mounts both halves — the Host
 # half registers the settings namespace, and the same row's dsh.client

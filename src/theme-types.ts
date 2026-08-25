@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2026 Miguel Euraque
+// @version 1.0.0
+// @author Miguel Euraque (mykeura)
+
 /**
  * Structural mirror of the theme contracts this plugin consumes from
  * `@deepseek-ai/dsh-client-ui-theme`. Declared locally so the package stays

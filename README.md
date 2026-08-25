@@ -1,5 +1,7 @@
 # @mykeura/dsh-minimalist-themes
 
+English | [中文](README.zh.md)
+
 Adapts the **Minimalist palette collection** to the DeepSeek Harness (DSH)
 design system: each curated palette becomes a light theme registered into the
 DSH theme runtime (`ctx.theme`), and a collapsible card under

@@ -7,7 +7,7 @@
  * gate; only the shared primitives icon rides the module table.
  *
  * The body holds a reset entry and one swatch per Minimalist palette —
- * frame/canvas/omnibox bands straight from the Chrome manifest colors.
+ * accent/canvas/field bands straight from the collection colors.
  * Selection applies immediately (no staged form), so unlike the form cards
  * there is no footer; the header pill names the active palette even while
  * collapsed. Palette colors ride component-local custom properties (the
@@ -20,7 +20,7 @@ import { useState, type CSSProperties } from 'react'
 import clsx from 'clsx'
 import { IconChevronDownOutline14 } from '@deepseek-ai/dsh-client-ui-primitives'
 import type { PropsLocale, PropsRuntime, PropsStore } from '@deepseek-ai/dsh-client-ui-slots'
-import { MINIMALIST_PALETTES } from '../palettes.generated.ts'
+import { MINIMALIST_PALETTES } from '../palettes.ts'
 import { THEME_ID_PREFIX } from '../themes.ts'
 import { palettePreview } from '../palette.ts'
 import type { createThemesCardStore } from './card-store.ts'
@@ -89,7 +89,7 @@ export function ThemesCard({ t, useStore, selectTheme }: ThemesCardComponentProp
         {active !== undefined ? (
           <span
             className={css.pending}
-            style={{ '--mt-frame': palettePreview(active).frame } as SwatchVars}
+            style={{ '--mt-accent': palettePreview(active).accent } as SwatchVars}
           >
             <span className={css.pendingDot} aria-hidden="true" />
             {shortName(active.title)}
@@ -121,16 +121,16 @@ export function ThemesCard({ t, useStore, selectTheme }: ThemesCardComponentProp
                     aria-selected={isSelected}
                     className={clsx(css.swatch, isSelected && css.selected)}
                     style={{
-                      '--mt-frame': preview.frame,
+                      '--mt-accent': preview.accent,
                       '--mt-canvas': preview.canvas,
-                      '--mt-omnibox': preview.omnibox,
+                      '--mt-field': preview.field,
                     } as SwatchVars}
                     onClick={(event) => { selectTheme(id, clickSeat(event.currentTarget)) }}
                   >
                     <span className={css.bands} aria-hidden="true">
-                      <span className={css.bandFrame} />
+                      <span className={css.bandAccent} />
                       <span className={css.bandCanvas} />
-                      <span className={css.bandOmnibox} />
+                      <span className={css.bandField} />
                     </span>
                     <span className={css.swatchName}>{shortName(palette.title)}</span>
                   </button>
@@ -146,7 +146,7 @@ export function ThemesCard({ t, useStore, selectTheme }: ThemesCardComponentProp
 
 /** Component-local custom properties carrying one palette's preview colors. */
 interface SwatchVars extends CSSProperties {
-  '--mt-frame': string
+  '--mt-accent': string
   '--mt-canvas': string
-  '--mt-omnibox': string
+  '--mt-field': string
 }

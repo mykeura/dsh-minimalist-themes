@@ -16,9 +16,6 @@
     "minimalist",
     "color-palette"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "type": "module",
   "main": "lib/index.mjs",
   "types": "lib/index.d.mts",
@@ -27,11 +24,7 @@
     "./client": "./lib/client.js",
     "./package.json": "./package.json"
   },
-  "files": [
-    "lib"
-  ],
   "scripts": {
-    "generate": "node scripts/generate-palettes.mjs",
     "typecheck": "tsc --noEmit",
     "build": "tsdown",
     "watch": "tsdown --watch"
@@ -58,5 +51,10 @@
     "@deepseek-ai/cordis": ">=0.1.0",
     "@deepseek-ai/dsh-settings": ">=0.1.0",
     "@deepseek-ai/schemastery": ">=0.1.0"
+  },
+  "devDependencies": {
+    "lightningcss": "^1.33.0",
+    "tsdown": "^0.22.14",
+    "typescript": "^7.0.2"
   }
 }

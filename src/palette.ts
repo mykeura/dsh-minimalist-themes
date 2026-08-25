@@ -1,19 +1,19 @@
 /**
- * Chrome Minimalist palette → DSH `--dsw-*` alias-token adapter.
+ * Minimalist collection palette → DSH `--dsw-*` alias-token adapter.
  *
- * The Chrome themes express a palette through browser chrome roles: `frame`
- * (the saturated pastel), `toolbar`/`ntp_background` (the light canvas tint),
- * `omnibox_background` (the mid input tint) and a fixed pair of dark neutral
- * inks. Every Minimalist theme is a light scheme, so each registers as a
- * light `ThemeDefinition`; selecting it switches the base palette to light
+ * Each palette carries nine color roles: `accent` (the saturated pastel),
+ * `canvas`/`backdrop` (the light canvas tints), `field` (the mid input
+ * tint), `paper` (the raised surface) and three dark neutral inks. Every
+ * Minimalist theme is a light scheme, so each registers as a light
+ * `ThemeDefinition`; selecting it switches the base palette to light
  * and layers these overrides over it.
  *
  * Mapping rules:
- * - Chrome's canvas (`toolbar`) becomes the application background family;
- *   raised layers interpolate toward `ntp_section` (white).
- * - Chrome's frame becomes the sidebar fill, the strongest pastel surface,
- *   mirroring where the color lives in the browser.
- * - The omnibox tint feeds inputs, selectors, and code surfaces, always
+ * - The canvas tint becomes the application background family; raised
+ *   layers interpolate toward `paper`.
+ * - The accent becomes the sidebar fill, the strongest pastel surface,
+ *   mirroring where the color lives in the shell.
+ * - The field tint feeds inputs, selectors, and code surfaces, always
  *   pulled toward white so text keeps its contrast.
  * - Interactive accent tokens (`brand-primary`, business states) use a deep
  *   shade of the pastel: primary buttons fill with it under white text, so a
@@ -23,7 +23,7 @@
  */
 
 import type { ThemeTokens } from './theme-types.ts'
-import type { MinimalistPalette } from './palettes.generated.ts'
+import type { MinimalistPalette } from './palettes.ts'
 
 /** Linear-RGB triple. */
 type Rgb = readonly [number, number, number]
@@ -70,23 +70,23 @@ function accentInk(accent: Rgb, ink: Rgb): Rgb {
 
 /**
  * Build the alias-token override dictionary for one Minimalist palette.
- * @param palette - generated palette record from the Chrome collection.
+ * @param palette - Minimalist collection palette record.
  * @returns token names mapped to concrete CSS values (light scheme).
  */
 export function paletteToThemeTokens(palette: MinimalistPalette): ThemeTokens {
   const c = palette.colors
-  const accent = c.frame ?? c.button_background ?? [207, 211, 214]
-  const canvas = c.toolbar ?? c.ntp_background ?? accent
-  const omnibox = c.omnibox_background ?? mix(canvas, WHITE, 0.4)
-  const ink = c.bookmark_text ?? c.tab_text ?? [58, 62, 65]
-  const inkSoft = c.tab_background_text_inactive ?? mix(ink, WHITE, 0.3)
-  const paper = c.ntp_section ?? WHITE
+  const accent = c.accent ?? c.button ?? [207, 211, 214]
+  const canvas = c.canvas ?? c.backdrop ?? accent
+  const field = c.field ?? mix(canvas, WHITE, 0.4)
+  const ink = c.ink ?? c.inkAlt ?? [58, 62, 65]
+  const inkSoft = c.inkSoft ?? mix(ink, WHITE, 0.3)
+  const paper = c.paper ?? WHITE
   const deep = accentInk(accent, ink)
   const borderBase = mix(accent, BLACK, 0.3)
   const hoverBase = mix(accent, BLACK, 0.5)
 
   const tokens: ThemeTokens = {
-    // Canvas: Chrome's toolbar/ntp tint becomes the app background family.
+    // Canvas tint becomes the app background family.
     '--dsw-alias-bg-base': rgb(canvas),
     '--dsw-alias-bg-layer-1': rgb(paper),
     '--dsw-alias-bg-layer-2': rgb(mix(canvas, paper, 0.55)),
@@ -94,15 +94,15 @@ export function paletteToThemeTokens(palette: MinimalistPalette): ThemeTokens {
     '--dsw-alias-bg-module-platform': rgb(mix(canvas, paper, 0.5)),
     '--dsw-alias-bg-multi-select': rgb(mix(canvas, paper, 0.5)),
     '--dsw-alias-bg-overlay': rgb(mix(canvas, paper, 0.2)),
-    // Sidebar carries the frame pastel, like Chrome's window chrome.
+    // Sidebar carries the accent pastel.
     '--dsw-specific-sidebar-fill': rgb(accent),
     '--dsw-specific-sidebar-nav-item-active-accent': rgb(mix(accent, paper, 0.45)),
     '--dsw-specific-sidebar-nav-item-active': rgb(mix(accent, paper, 0.62)),
     '--dsw-specific-sidebar-nav-item-hover': rgb(mix(accent, paper, 0.78)),
     // Inputs and selectors stay near-white for legibility.
-    '--dsw-specific-input-major': rgb(mix(omnibox, paper, 0.6)),
-    '--dsw-specific-login-input': rgb(mix(omnibox, paper, 0.7)),
-    '--dsw-specific-selector': rgb(mix(omnibox, paper, 0.35)),
+    '--dsw-specific-input-major': rgb(mix(field, paper, 0.6)),
+    '--dsw-specific-login-input': rgb(mix(field, paper, 0.7)),
+    '--dsw-specific-selector': rgb(mix(field, paper, 0.35)),
     '--dsw-specific-tip': rgb(mix(canvas, paper, 0.4)),
     // Ink: the themes' fixed dark neutrals.
     '--dsw-alias-label-primary': rgb(ink),
@@ -150,15 +150,15 @@ export function paletteToThemeTokens(palette: MinimalistPalette): ThemeTokens {
 }
 
 /**
- * Preview triple for the picker UI: frame, canvas, and omnibox swatches.
- * @param palette - generated palette record.
+ * Preview triple for the picker UI: accent, canvas, and field swatches.
+ * @param palette - Minimalist collection palette record.
  * @returns the three representative colors as CSS `rgb()` strings.
  */
-export function palettePreview(palette: MinimalistPalette): { frame: string; canvas: string; omnibox: string } {
+export function palettePreview(palette: MinimalistPalette): { accent: string; canvas: string; field: string } {
   const c = palette.colors
   return {
-    frame: rgb(c.frame ?? [207, 211, 214]),
-    canvas: rgb(c.toolbar ?? c.frame ?? [255, 255, 255]),
-    omnibox: rgb(c.omnibox_background ?? [255, 255, 255]),
+    accent: rgb(c.accent ?? c.button ?? [207, 211, 214]),
+    canvas: rgb(c.canvas ?? c.accent ?? [255, 255, 255]),
+    field: rgb(c.field ?? [249, 250, 251]),
   }
 }

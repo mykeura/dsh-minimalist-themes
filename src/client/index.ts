@@ -1,7 +1,7 @@
 /**
  * Minimalist Themes — browser half.
  *
- * Registers every Minimalist Chrome palette into the DSH theme runtime as a
+ * Registers every Minimalist collection palette into the DSH theme runtime as a
  * light `ThemeDefinition`, persists the user's pick in this browser's
  * localStorage, and renders the picker card into the Plugins settings
  * section.

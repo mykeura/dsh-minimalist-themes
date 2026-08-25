@@ -78,7 +78,7 @@
   line-height: 17px;
   font-weight: 500;
   white-space: nowrap;
-  background: var(--mt-frame);
+  background: var(--mt-accent);
   color: var(--dsw-alias-label-primary);
 }
 
@@ -146,9 +146,9 @@
 }
 
 .swatch {
-  --mt-frame: rgb(207, 211, 214);
+  --mt-accent: rgb(207, 211, 214);
   --mt-canvas: rgb(255, 255, 255);
-  --mt-omnibox: rgb(249, 250, 251);
+  --mt-field: rgb(249, 250, 251);
 
   display: flex;
   flex-direction: column;
@@ -188,9 +188,9 @@
   border: 1px solid var(--dsw-alias-border-l1);
 }
 
-.bandFrame {
+.bandAccent {
   flex: 3;
-  background: var(--mt-frame);
+  background: var(--mt-accent);
 }
 
 .bandCanvas {
@@ -198,9 +198,9 @@
   background: var(--mt-canvas);
 }
 
-.bandOmnibox {
+.bandField {
   flex: 2;
-  background: var(--mt-omnibox);
+  background: var(--mt-field);
 }
 
 .swatchName {

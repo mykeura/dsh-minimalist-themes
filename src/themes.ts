@@ -1,10 +1,10 @@
 /**
- * The Minimalist theme catalog: every Chrome palette becomes one light
+ * The Minimalist theme catalog: every collection palette becomes one light
  * `ThemeDefinition` registered into the DSH theme runtime. Ids are prefixed
  * to stay namespaced against built-ins and other plugins' registrations.
  */
 
-import { MINIMALIST_PALETTES, type MinimalistPalette } from './palettes.generated.ts'
+import { MINIMALIST_PALETTES, type MinimalistPalette } from './palettes.ts'
 import { palettePreview, paletteToThemeTokens } from './palette.ts'
 import type { ThemeDefinition } from './theme-types.ts'
 

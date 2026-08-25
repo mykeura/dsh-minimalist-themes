@@ -1,6 +1,5 @@
 import z from "@deepseek-ai/schemastery";
 import { Context } from "@deepseek-ai/cordis";
-
 //#region src/settings.d.ts
 /** Field carrying the selected registered theme id (empty string = no selection). */
 declare const THEME_FIELD = "theme";

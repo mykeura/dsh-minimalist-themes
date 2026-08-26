@@ -10,6 +10,8 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE) [![Source](https://img.shields.io/badge/Source-GitHub-brightgreen.svg?style=flat-square)](https://github.com/mykeura/dsh-minimalist-themes)
 
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org) [![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev)
+
 ---
 
 ## 安装
@@ -24,7 +26,12 @@ pnpm dsh plugin --profile web add github:mykeura/dsh-minimalist-themes#v1.0.0
 
 ## 主题
 
-Beetroot Juice、Blackberry Juice、Coffee With Milk、Cornmeal Porridge、Diana Yin、Grape Juice、Green Tea、Hibiscus Tea、Horchata、Mango、Mint、Nance Juice、Oceans、Orange Juice、Snow Water、Turquoise、Ultramarine、Yuzu。
+| Beetroot Juice | Blackberry Juice | Coffee With Milk |
+| Cornmeal Porridge | Diana Yin | Grape Juice |
+| Green Tea | Hibiscus Tea | Horchata |
+| Mango | Mint | Nance Juice |
+| Oceans | Orange Juice | Snow Water |
+| Turquoise | Ultramarine | Yuzu |
 
 ## 许可
 

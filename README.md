@@ -8,9 +8,7 @@ Since the philosophy behind DSH is that everything is a plugin, I tried to adapt
 
 ![DSH Minimalist Themes — Snow Water palette](img/preview.png)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE) [![Source](https://img.shields.io/badge/Source-GitHub-brightgreen.svg?style=flat-square)](https://github.com/mykeura/dsh-minimalist-themes)
-
-[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6.svg?style=flat-square)](https://www.typescriptlang.org) [![React](https://img.shields.io/badge/React-61DAFB.svg?style=flat-square)](https://react.dev)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE) [![Source](https://img.shields.io/badge/Source-GitHub-brightgreen.svg?style=flat-square)](https://github.com/mykeura/dsh-minimalist-themes) [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6.svg?style=flat-square)](https://www.typescriptlang.org) [![React](https://img.shields.io/badge/React-61DAFB.svg?style=flat-square)](https://react.dev)
 
 ---
 

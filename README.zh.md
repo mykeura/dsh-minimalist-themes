@@ -8,9 +8,7 @@
 
 ![DSH Minimalist Themes — Snow Water 调色板](img/preview.png)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE) [![Source](https://img.shields.io/badge/Source-GitHub-brightgreen.svg?style=flat-square)](https://github.com/mykeura/dsh-minimalist-themes)
-
-[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6.svg?style=flat-square)](https://www.typescriptlang.org) [![React](https://img.shields.io/badge/React-61DAFB.svg?style=flat-square)](https://react.dev)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE) [![Source](https://img.shields.io/badge/Source-GitHub-brightgreen.svg?style=flat-square)](https://github.com/mykeura/dsh-minimalist-themes) [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6.svg?style=flat-square)](https://www.typescriptlang.org) [![React](https://img.shields.io/badge/React-61DAFB.svg?style=flat-square)](https://react.dev)
 
 ---
 

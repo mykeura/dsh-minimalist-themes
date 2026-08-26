@@ -1,8 +1,10 @@
-# @mykeura/dsh-minimalist-themes
+# DSH Minimalist Themes
 
 English | [中文](README.zh.md)
 
-The idea is simple: this plugin takes the **Minimalist palette collection** and adapts it to the DeepSeek Harness (DSH) design system. Each curated palette becomes a light theme registered into the DSH theme runtime (`ctx.theme`). Pick one from a collapsible card under **Settings → Plugins** and the whole interface changes with it — 18 themes, one click each.
+The idea was simple: build a collection of minimalist color palettes based on an earlier project. The goal was to give DeepSeek Harness (DSH) a more colorful, softer tone — one that would fit its minimalist design perfectly.
+
+Since the philosophy behind DSH is that everything is a plugin, I tried to adapt this creation as best I could. So you'll find it under **Settings → Plugins → Minimalist themes**. Once there, you'll see 18 minimalist themes at your disposal, and you can switch between them with a single click.
 
 ![DSH Minimalist Themes — Snow Water palette](img/preview.png)
 
@@ -18,23 +20,11 @@ pnpm dsh plugin --profile web add github:mykeura/dsh-minimalist-themes
 pnpm dsh plugin --profile web add github:mykeura/dsh-minimalist-themes#v1.0.0
 ```
 
-Then:
+Once the plugin is installed, you can access its configuration from **Settings → Plugins**.
 
-1. Restart `dsh web`.
-2. Reload the page; the card appears under **Settings → Plugins**.
+## Temas
 
-## Update / remove
-
-```sh
-pnpm dsh plugin --profile web add github:mykeura/dsh-minimalist-themes#v1.0.1   # update
-pnpm dsh plugin --profile web remove @mykeura/dsh-minimalist-themes              # remove
-```
-
-## Palettes
-
-Beetroot Juice, Blackberry Juice, Coffee With Milk, Cornmeal Porridge,
-Diana Yin, Grape Juice, Green Tea, Hibiscus Tea, Horchata, Mango, Mint,
-Nance Juice, Oceans, Orange Juice, Snow Water, Turquoise, Ultramarine, Yuzu.
+Beetroot Juice, Blackberry Juice, Coffee With Milk, Cornmeal Porridge, Diana Yin, Grape Juice, Green Tea, Hibiscus Tea, Horchata, Mango, Mint, Nance Juice, Oceans, Orange Juice, Snow Water, Turquoise, Ultramarine, Yuzu.
 
 ## License
 

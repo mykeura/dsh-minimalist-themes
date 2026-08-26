@@ -1,8 +1,10 @@
-# @mykeura/dsh-minimalist-themes
+# DSH Minimalist Themes
 
 [English](README.md) | 中文
 
-把 **Minimalist 极简调色板系列** 适配到 DeepSeek Harness（DSH）设计系统。每套精选调色板都作为一个浅色主题注册到 DSH 主题运行时（`ctx.theme`）。在 **设置 → 插件** 下点一张可折叠卡片，整个界面就跟着换——18 套，一次点击。
+想法很简单：基于之前的一个项目，做一套极简风格的配色。目的是让 DeepSeek Harness（DSH）的颜色更丰富、更柔和，跟它那极简的设计完美贴合。
+
+既然 DSH 的理念是「一切皆插件」，我就尽力把这份创作适配好。你可以在 **设置 → 插件 → Minimalist themes** 找到它。进去之后有 18 套极简主题，点一下就能切来切去。
 
 ![DSH Minimalist Themes — Snow Water 调色板](img/preview.png)
 
@@ -18,23 +20,11 @@ pnpm dsh plugin --profile web add github:mykeura/dsh-minimalist-themes
 pnpm dsh plugin --profile web add github:mykeura/dsh-minimalist-themes#v1.0.0
 ```
 
-然后：
+安装好插件后，可以从 **设置 → 插件** 进入它的配置。
 
-1. 重启 `dsh web`。
-2. 刷新页面；卡片就会出现在 **设置 → 插件** 下。
+## 主题
 
-## 更新 / 卸载
-
-```sh
-pnpm dsh plugin --profile web add github:mykeura/dsh-minimalist-themes#v1.0.1   # 更新
-pnpm dsh plugin --profile web remove @mykeura/dsh-minimalist-themes              # 卸载
-```
-
-## 调色板
-
-Beetroot Juice、Blackberry Juice、Coffee With Milk、Cornmeal Porridge、
-Diana Yin、Grape Juice、Green Tea、Hibiscus Tea、Horchata、Mango、Mint、
-Nance Juice、Oceans、Orange Juice、Snow Water、Turquoise、Ultramarine、Yuzu。
+Beetroot Juice、Blackberry Juice、Coffee With Milk、Cornmeal Porridge、Diana Yin、Grape Juice、Green Tea、Hibiscus Tea、Horchata、Mango、Mint、Nance Juice、Oceans、Orange Juice、Snow Water、Turquoise、Ultramarine、Yuzu。
 
 ## 许可
 

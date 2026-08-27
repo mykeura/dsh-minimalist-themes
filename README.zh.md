@@ -6,7 +6,7 @@
 
 既然 DSH 的理念是「一切皆插件」，我就尽力把这份创作适配好。你可以在 **设置 → 插件 → Minimalist themes** 找到它。进去之后有 18 套极简主题，点一下就能切来切去。
 
-![DSH Minimalist Themes — Snow Water 调色板](img/preview.png)
+![DSH Minimalist Themes — Snow Water 调色板](images/preview.png)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE) [![Source](https://img.shields.io/badge/Source-GitHub-brightgreen.svg?style=flat-square)](https://github.com/mykeura/dsh-minimalist-themes) [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6.svg?style=flat-square)](https://www.typescriptlang.org) [![React](https://img.shields.io/badge/React-61DAFB.svg?style=flat-square)](https://react.dev)
 
@@ -24,13 +24,17 @@ pnpm dsh plugin --profile web add github:mykeura/dsh-minimalist-themes#v1.0.0
 
 ## 主题
 
-| Beetroot Juice | Blackberry Juice | Coffee With Milk |
-| --- | --- | --- |
-| Cornmeal Porridge | Diana Yin | Grape Juice |
-| Green Tea | Hibiscus Tea | Horchata |
-| Mango | Mint | Nance Juice |
-| Oceans | Orange Juice | Snow Water |
-| Turquoise | Ultramarine | Yuzu |
+|   |   |
+| --- | --- |
+| ![Beetroot Juice](images/beetroot-juice.png)<br>Beetroot Juice | ![Blackberry Juice](images/blackberry-juice.png)<br>Blackberry Juice |
+| ![Coffee With Milk](images/coffee-with-milk.png)<br>Coffee With Milk | ![Cornmeal Porridge](images/cornmeal-porridge.png)<br>Cornmeal Porridge |
+| ![Diana Yin](images/diana-yin.png)<br>Diana Yin | ![Grape Juice](images/grape-juice.png)<br>Grape Juice |
+| ![Green Tea](images/green-tea.png)<br>Green Tea | ![Hibiscus Tea](images/hibiscus-tea.png)<br>Hibiscus Tea |
+| ![Horchata](images/horchata.png)<br>Horchata | ![Mango](images/mango.png)<br>Mango |
+| ![Mint](images/mint.png)<br>Mint | ![Nance Juice](images/nance-juice.png)<br>Nance Juice |
+| ![Oceans](images/oceans.png)<br>Oceans | ![Orange Juice](images/orange-juice.png)<br>Orange Juice |
+| ![Snow Water](images/snow-water.png)<br>Snow Water | ![Turquoise](images/turquoise.png)<br>Turquoise |
+| ![Ultramarine](images/ultramarine.png)<br>Ultramarine | ![Yuzu](images/yuzu.png)<br>Yuzu |
 
 ## 许可
 

@@ -65,8 +65,8 @@ export const MINIMALIST_PALETTES: readonly MinimalistPalette[] = Object.freeze([
     colors: Object.freeze({
       accent: [255, 218, 155] as [number, number, number],
       canvas: [240, 232, 219] as [number, number, number],
-      field: [255, 255, 255] as [number, number, number],
-      ink: [0, 0, 0] as [number, number, number],
+      field: [255, 248, 235] as [number, number, number],
+      ink: [58, 62, 65] as [number, number, number],
       inkAlt: [60, 64, 67] as [number, number, number],
       inkSoft: [102, 106, 109] as [number, number, number],
       backdrop: [240, 232, 219] as [number, number, number],
@@ -78,7 +78,7 @@ export const MINIMALIST_PALETTES: readonly MinimalistPalette[] = Object.freeze([
     id: "diana-yin",
     title: "Minimalist Diana Yin",
     colors: Object.freeze({
-      accent: [75, 56, 123] as [number, number, number],
+      accent: [176, 157, 224] as [number, number, number],
       canvas: [200, 191, 231] as [number, number, number],
       field: [239, 237, 255] as [number, number, number],
       ink: [58, 62, 65] as [number, number, number],
@@ -86,7 +86,7 @@ export const MINIMALIST_PALETTES: readonly MinimalistPalette[] = Object.freeze([
       inkSoft: [102, 106, 109] as [number, number, number],
       backdrop: [200, 191, 231] as [number, number, number],
       paper: [255, 255, 255] as [number, number, number],
-      button: [75, 56, 123] as [number, number, number],
+      button: [176, 157, 224] as [number, number, number],
     }),
   }),
   Object.freeze({

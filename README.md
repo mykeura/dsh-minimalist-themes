@@ -8,7 +8,7 @@ Since the philosophy behind DSH is that everything is a plugin, I tried to adapt
 
 ![DSH Minimalist Themes — Snow Water palette](images/preview.png)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE) [![Source](https://img.shields.io/badge/Source-GitHub-brightgreen.svg?style=flat-square)](https://github.com/mykeura/dsh-minimalist-themes) [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6.svg?style=flat-square)](https://www.typescriptlang.org) [![React](https://img.shields.io/badge/React-61DAFB.svg?style=flat-square)](https://react.dev)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE) [![Source](https://img.shields.io/badge/Source-GitHub-brightgreen.svg?style=flat-square)](https://github.com/mykeura/dsh-minimalist-themes) [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6.svg?style=flat-square)](https://www.typescriptlang.org) [![React](https://img.shields.io/badge/React-61DAFB.svg?style=flat-square)](https://react.dev) [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=flat-square)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![CSS](https://img.shields.io/badge/CSS-1572B6.svg?style=flat-square)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
 ---
 

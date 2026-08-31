@@ -8,7 +8,7 @@
  * the component reads through props.useStore.
  */
 
-import { defineStore, type EngineStoreHandle } from '@deepseek-ai/dsh-client-runtime/client'
+import { defineStore, type EngineStoreHandle } from '@deepseek-ai/dsh-client-store'
 import { NO_SELECTION } from '../settings.ts'
 
 /** Card state mirrored from the settings scope and the theme snapshot. */

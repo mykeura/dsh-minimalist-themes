@@ -1,7 +1,7 @@
 {
   "name": "@mykeura/dsh-minimalist-themes",
   "description": "Minimalist Themes plugin: adapts the Minimalist theme collection palettes to the DSH --dsw-* token system and adds a picker card under Settings > Plugins",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "mykeura",
   "license": "MIT",
   "homepage": "https://github.com/mykeura/dsh-minimalist-themes#readme",
@@ -36,7 +36,7 @@
     "client": {
       "platform": "web",
       "inject": [
-        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-store",
         "@deepseek-ai/dsh-client-ui-slots",
         "@deepseek-ai/dsh-client-locale",
         "@deepseek-ai/dsh-client-ui-settings",

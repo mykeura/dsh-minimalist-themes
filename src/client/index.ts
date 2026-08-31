@@ -33,7 +33,7 @@
  * section below).
  */
 
-import type { ClientContext } from '@deepseek-ai/dsh-client-runtime/client'
+import type { Context as ClientContext } from '@deepseek-ai/cordis'
 import type { BoundActions } from '@deepseek-ai/dsh-client-ui-slots'
 // Type-only: the keyed `settings.plugin.item` slot declaration.
 import type {} from '@deepseek-ai/dsh-client-ui-settings-plugins/client'

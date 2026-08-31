@@ -14,12 +14,9 @@
 
 import type { Context } from '@deepseek-ai/cordis'
 import z from '@deepseek-ai/schemastery'
-import { settingsNamespace } from '@deepseek-ai/dsh-settings'
 import { MINIMALIST_SETTINGS_NAMESPACE, NO_SELECTION, THEME_FIELD } from './settings.ts'
 
 export const name = 'minimalist-themes'
-
-const NAMESPACE = settingsNamespace(MINIMALIST_SETTINGS_NAMESPACE)
 
 /** Durable selection section: one optional registered-theme id. */
 export interface Config {
@@ -38,6 +35,6 @@ export const ConfigSchema: z<Config> = z.object({
  */
 export function apply(ctx: Context): void {
   ctx.inject(['settings'], (settingsCtx) => {
-    settingsCtx.settings.register(NAMESPACE, ConfigSchema)
+    settingsCtx.settings.register(MINIMALIST_SETTINGS_NAMESPACE, ConfigSchema)
   })
 }

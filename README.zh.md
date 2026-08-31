@@ -12,12 +12,14 @@
 
 ---
 
+它是为 DSH 的 web 配置做的——我在 `0.1.2-alpha.2` 上测过。如果面板没在 设置 → 插件 里出现，多半是你的 harness 改了客户端模块；固定一个你验证过的版本，再告诉我一声。
+
 ## 安装
 
 ```sh
 pnpm dsh plugin --profile web add github:mykeura/dsh-minimalist-themes
 # 固定版本：
-pnpm dsh plugin --profile web add github:mykeura/dsh-minimalist-themes#v1.0.0
+pnpm dsh plugin --profile web add github:mykeura/dsh-minimalist-themes#v1.0.1
 ```
 
 安装好插件后，可以从 **设置 → 插件** 进入它的配置。

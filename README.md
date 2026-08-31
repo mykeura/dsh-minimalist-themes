@@ -12,12 +12,14 @@ Since the philosophy behind DSH is that everything is a plugin, I tried to adapt
 
 ---
 
+It's built for the DSH web profile — I test it against `0.1.2-alpha.2`. If the picker doesn't show up in Settings → Plugins, your harness probably moved a client module; pin a version you've confirmed and let me know.
+
 ## Install
 
 ```sh
 pnpm dsh plugin --profile web add github:mykeura/dsh-minimalist-themes
 # pin a version:
-pnpm dsh plugin --profile web add github:mykeura/dsh-minimalist-themes#v1.0.0
+pnpm dsh plugin --profile web add github:mykeura/dsh-minimalist-themes#v1.0.1
 ```
 
 Once the plugin is installed, you can access its configuration from **Settings → Plugins**.

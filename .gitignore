@@ -3,5 +3,17 @@ node_modules/
 *.tsbuildinfo
 .DS_Store
 
-# Herramienta personal de auditoría de temas (fuera del repo)
+# Herramientas personales del autor y exportaciones derivadas (fuera del repo)
 /audit/
+/scripts/
+/test/
+/palettes.json
+
+# Source maps de build: no son necesarios para instalar ni ejecutar el plugin.
+/lib/*.map
+
+# Artefactos generados por GitNexus
+/.gitnexus/
+/AGENTS.md
+/CLAUDE.md
+/.claude/skills/gitnexus-*/

@@ -74,7 +74,7 @@ export default [
     format: 'esm',
     platform: 'node',
     target: 'es2024',
-    sourcemap: true,
+    sourcemap: false,
     dts: true,
     clean: false,
     deps: {
@@ -88,7 +88,7 @@ export default [
     format: 'cjs',
     platform: 'browser',
     target: 'es2024',
-    sourcemap: true,
+    sourcemap: false,
     clean: false,
     deps: {
       neverBundle: specifier => BROWSER_EXTERNALS.has(specifier),

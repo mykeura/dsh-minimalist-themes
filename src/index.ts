@@ -13,6 +13,8 @@
  */
 
 import type { Context } from '@deepseek-ai/cordis'
+// Type-only: pulls the settings service Context merge (`ctx.settings`).
+import type {} from '@deepseek-ai/dsh-settings'
 import z from '@deepseek-ai/schemastery'
 import { MINIMALIST_SETTINGS_NAMESPACE, NO_SELECTION, THEME_FIELD } from './settings.ts'
 

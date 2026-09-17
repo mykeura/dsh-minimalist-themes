@@ -41,6 +41,8 @@ import type {} from '@deepseek-ai/dsh-client-ui-settings-plugins/client'
 import type {} from '@deepseek-ai/dsh-client-locale/client'
 // Type-only: the ctx.theme service merge and the `theme/change` event.
 import type {} from '@deepseek-ai/dsh-client-ui-theme/client'
+// Type-only: pulls the SlotRegistry service merge (`ctx.slots`).
+import type {} from '@deepseek-ai/dsh-client-ui-renderer/client'
 import { MINIMALIST_THEMES, paletteByThemeId } from '../themes.ts'
 import type { ThemeRuntimeFace, ThemeTokenOverrides } from '../theme-types.ts'
 import { createThemesCardStore } from './card-store.ts'
